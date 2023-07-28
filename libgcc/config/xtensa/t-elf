@@ -1,7 +1,7 @@
 # Build CRT files and libgcc with the "longcalls" option
-CRTSTUFF_T_CFLAGS += -mlongcalls
-CRTSTUFF_T_CFLAGS_S += -mlongcalls
+CRTSTUFF_T_CFLAGS += -mlongcalls -mcmodel=large
+CRTSTUFF_T_CFLAGS_S += -mlongcalls -mcmodel=large
 
-HOST_LIBGCC2_CFLAGS += -mlongcalls
+HOST_LIBGCC2_CFLAGS += -mlongcalls -mcmodel=large
 
 LIB2ADDEH_XTENSA_UNWIND_DW2_FDE = $(srcdir)/unwind-dw2-fde.c

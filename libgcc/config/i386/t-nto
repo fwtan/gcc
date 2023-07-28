@@ -1,3 +1,3 @@
-HOST_LIBGCC2_CFLAGS += -fexceptions
+HOST_LIBGCC2_CFLAGS += -fexceptions -mcmodel=large
 
-CRTSTUFF_T_CFLAGS = -fno-omit-frame-pointer $(PICFLAG)
+CRTSTUFF_T_CFLAGS = -fno-omit-frame-pointer $(PICFLAG) -mcmodel=large

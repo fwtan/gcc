@@ -5,7 +5,7 @@ HOST_LIBGCC2_CFLAGS += -mlibfuncs -O2
 # end of the section in the file being compiled.  Thus we must stop the
 # assembler from generating stubbable PUSHJ relocs, because that will add
 # stubs at the end of the current section when necessary.
-CRTSTUFF_T_CFLAGS = -Wa,--no-stubs
+CRTSTUFF_T_CFLAGS = -Wa,--no-stubs -mcmodel=large
 
 # Don't use global registers in libraries.
 # FIXME: Not applied at "root" level, so disabled at the moment to stop

@@ -28,7 +28,7 @@
 CRTSTUFF_T_CFLAGS += -mno-sdata
 
 # Compile crtbeginS.o and crtendS.o with pic.
-CRTSTUFF_T_CFLAGS_S = $(CRTSTUFF_T_CFLAGS) -fPIC
+CRTSTUFF_T_CFLAGS_S = $(CRTSTUFF_T_CFLAGS) -mcmodel=large -fPIC 
 
 # Compile libgcc2.a with pic.
 TARGET_LIBGCC2_CFLAGS = -fPIC
