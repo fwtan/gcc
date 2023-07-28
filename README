@@ -31,5 +31,5 @@ cd gcc
 cd ..
 mkdir objdir
 cd objdir
-$PWD/../gcc/configure --prefix=/usr/local --disable-multilib
+$PWD/../gcc/configure --prefix=/usr/local --disable-multilib --enable-languages=c,c++,fortran,go
 ```
