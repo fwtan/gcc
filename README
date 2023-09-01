@@ -22,6 +22,7 @@ inclusive, is a copyrightable year that could otherwise be listed
 individually.
 
 # Compile
+git checkout gcc-11.4.0/qnn
 cd gcc
 ./contrib/download_prerequisites
 cd ..
