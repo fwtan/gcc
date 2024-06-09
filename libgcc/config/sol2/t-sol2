@@ -18,13 +18,13 @@
 
 # crtp, crtpg build rules
 crtp.o: $(srcdir)/config/sol2/crtp.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -c $<
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -c $<
 crtpg.o: $(srcdir)/config/sol2/crtpg.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -c $<
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -c $<
 
 # gmon build rule
 gmon.o:	$(srcdir)/config/sol2/gmon.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -c $<
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -c $<
 
 # Assemble startup files.
 crt1.o: $(srcdir)/config/$(cpu_type)/sol2-c1.S

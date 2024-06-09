@@ -1,10 +1,10 @@
 LIB2ADDEH = 
 
 crti.o: $(srcdir)/config/bpf/crti.S
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $<
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $<
 
 crtn.o: $(srcdir)/config/bpf/crtn.S
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $<
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $<
 
 # Some of the functions defined in libgcc2 exceed the eBPF stack
 # limit, or other restrictions imposed by this peculiar target.

@@ -1023,33 +1023,33 @@ ifeq ($(CUSTOM_CRTSTUFF),)
 # linked using GCC on systems using COFF or ELF, for the sake of C++
 # constructors.
 crtbegin$(objext): $(srcdir)/crtstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_BEGIN
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_BEGIN
 
 crtend$(objext): $(srcdir)/crtstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_END
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_END
 
 # These are versions of crtbegin and crtend for shared libraries.
 crtbeginS$(objext): $(srcdir)/crtstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -c $< -DCRT_BEGIN -DCRTSTUFFS_O
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -c $< -DCRT_BEGIN -DCRTSTUFFS_O
 
 crtendS$(objext): $(srcdir)/crtstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -c $< -DCRT_END -DCRTSTUFFS_O
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -c $< -DCRT_END -DCRTSTUFFS_O
 
 # This is a version of crtbegin for -static links.
 crtbeginT$(objext): $(srcdir)/crtstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_BEGIN -DCRTSTUFFT_O
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_BEGIN -DCRTSTUFFT_O
 
 # crtoffloadbegin and crtoffloadend contain symbols, that mark the begin and
 # the end of tables with addresses, required for offloading.  crtoffloadtable
 # contains the array with addresses of those symbols.
 crtoffloadbegin$(objext): $(srcdir)/offloadstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_BEGIN
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_BEGIN
 
 crtoffloadend$(objext): $(srcdir)/offloadstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_END
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_END
 
 crtoffloadtable$(objext): $(srcdir)/offloadstuff.c
-	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -c $< -DCRT_TABLE
+	$(crt_compile) $(CRTSTUFF_T_CFLAGS) -mcmodel=large -c $< -DCRT_TABLE
 endif
 
 ifeq ($(enable_vtable_verify),yes)
@@ -1058,7 +1058,7 @@ ifeq ($(enable_vtable_verify),yes)
 
 # Override -finhibit-size-directive to avoid mismatch between libgcc and libvtv
 # compilations.
-VTV_CFLAGS = $(CRTSTUFF_T_CFLAGS_S) -fno-inhibit-size-directive
+VTV_CFLAGS = $(CRTSTUFF_T_CFLAGS_S) -mcmodel=large -fno-inhibit-size-directive
 
 vtv_start$(objext): $(srcdir)/vtv_start.c
 	$(crt_compile) $(VTV_CFLAGS) -c $(srcdir)/vtv_start.c

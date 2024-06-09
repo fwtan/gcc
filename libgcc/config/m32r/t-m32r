@@ -9,7 +9,7 @@ HOST_LIBGCC2_CFLAGS += -G 0
 # routines in initfini.c.
 # -fpic currently isn't supported for the m32r.
 # FIXME: No longer true.  Empty CRTSTUFF_T_CFLAGS is the default.
-CRTSTUFF_T_CFLAGS =
+CRTSTUFF_T_CFLAGS = -mcmodel=large
 
 # .init/.fini section routines
 crtinit.o: $(srcdir)/config/m32r/initfini.c
